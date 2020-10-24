@@ -1,5 +1,5 @@
 # MinimalIJSObjectReferenceExample
-Example project showing how modules can be imported.
+Example project showing how javaScript modules can be imported in Blazor.
 
 There are three example:
 - Importing normally works.
