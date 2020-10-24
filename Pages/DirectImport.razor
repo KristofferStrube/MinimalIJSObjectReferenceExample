@@ -1,0 +1,15 @@
+﻿@page "/DirectImport"
+@inject IJSRuntime jsRuntime
+
+<h1>Direct Import</h1>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var module1 = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./js/script1.js");
+
+        var module2 = await module1.InvokeAsync<IJSObjectReference>("import", "./js/script2.js");
+
+        await module2.InvokeVoidAsync("hello2", "This text will never be shown.");
+    }
+} 

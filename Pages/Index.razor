@@ -1,0 +1,13 @@
+﻿@page "/"
+@inject IJSRuntime jsRuntime
+
+<h1>Import module normally</h1>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var module = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./js/script1.js");
+
+        await module.InvokeVoidAsync("hello1", "Importing normally works.");
+    }
+}
